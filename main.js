@@ -1,25 +1,26 @@
-const helper = require('./helpers')
+const todo = require('./functions')
+
+
 
 function main(cmdArgs) {
-    const parseArgs = helper.parseCmdArgs(cmdArgs);
-    helper.createIfNotExists('./todo.json')
+    const parseArgs = todo.parseCmdArgs(cmdArgs);
     switch (parseArgs.command) {
         case 'add':
-            helper.add(parseArgs)
+            todo.add(parseArgs)
             break;
         case 'edit':
-            helper.edit(parseArgs)
+            todo.edit(parseArgs)
             break;
         case 'remove':
-            helper.remove(parseArgs)
+            todo.remove(parseArgs)
             break;
         case 'list':
-            helper.list(parseArgs)
+            todo.list()
             break;
         
         default:
             break;
     }
+   
 }
-
 main(process.argv)
